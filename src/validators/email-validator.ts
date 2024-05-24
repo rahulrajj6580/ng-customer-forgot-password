@@ -4,3 +4,4 @@ export class EmailValidator {
       return emailRegex.test(email);
     }
   }
+  

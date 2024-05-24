@@ -14,7 +14,6 @@ const emailValidator = new EmailValidator();
 const responseBuilder = new ResponseBuilder();
 
 export const handler = async (event) => {
-  // console.log("handler");
   try {
     const queryParameter = "stevejobs@gmail.com";
     if (!emailValidator.isValidEmail(queryParameter)) {
