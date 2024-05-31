@@ -1,25 +1,25 @@
 export class ResponseBuilder {
-    success(data: any, statusCode: number): any {
-      return {
-        statusCode,
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://localhost:4200",
-        },
-      };
-    }
-  
-    badRequest(message: string): any {
-      return this.success({ message }, 400);
-    }
-  
-    notFound(message: string): any {
-      return this.success({ message }, 404);
-    }
-  
-    internalServerError(message: string): any {
-      return this.success({ message }, 500);
-    }
+  success(statusCode: number): any {
+    const message: string = "email exists";
+    console.log(statusCode, message);
+    return { statusCode, message };
   }
-  
+
+  badRequest(statusCode: number): any {
+    const message: string = "Invalid Email Address";
+    console.log(statusCode, message);
+    return { message, statusCode };
+  }
+
+  notFound(statusCode: number): any {
+    const message: string = "User not found";
+    console.log(statusCode, message);
+    return { message, statusCode };
+  }
+
+  internalServerError(statusCode: number): any {
+    const message: string = "Internal Server Error";
+    console.log(statusCode, message);
+    return { message, statusCode };
+  }
+}

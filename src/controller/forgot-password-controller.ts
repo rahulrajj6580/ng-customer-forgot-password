@@ -17,18 +17,16 @@ export const handler = async (event) => {
   try {
     const queryParameter = "stevejobs@gmail.com";
     if (!emailValidator.isValidEmail(queryParameter)) {
-      return responseBuilder.badRequest("Invalid Email Address");
+      return responseBuilder.badRequest(400);
     }
-
     const data = await forgotPasswordService.getDetailByEmail(queryParameter);
     if (data.Item.email === queryParameter) {
-      // return responseBuilder.success({ email: data.item.email }, 200);
-      console.log(data.Item.email);
+      return responseBuilder.success(200);
     }
-    return responseBuilder.notFound("User not found");
+    return responseBuilder.notFound(404);
   } catch (error) {
-    return responseBuilder.internalServerError("Internal Server Error");
+    return responseBuilder.internalServerError(500);
   }
 };
 
-handler("hello");
+handler("test");

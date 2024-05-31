@@ -1,4 +1,3 @@
-import { ForgotPasswordRequest } from "../model/forgot-password-request";
 import { ForgotPasswordRepository } from "../repository/forgot-password-repository";
 
 export class ForgotPasswordService {
